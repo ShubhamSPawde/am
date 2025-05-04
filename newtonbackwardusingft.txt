@@ -1,0 +1,33 @@
+%% Newton Backward using forward table
+
+x = [0 1 2 3 4];
+y = [0 1 4 9 16];
+
+n = length(y);
+h = x(2) - x(1);
+fdt = zeros(n, n);
+
+for i=1:n             
+    fdt(i, 1) = y(i);
+end
+
+for j=2:n
+    for i=1:n-j+1
+        fdt(i, j) = fdt(i+1, j-1) - fdt(i, j-1);
+    end
+end
+
+disp(fdt)
+
+X = 1.5;
+Y = y(n);
+prod = 1;
+fact = 1;
+
+for i=1:n-1
+    prod = prod *  (X - x(n-i+1)) / h;
+    fact = fact * 1/i;
+    Y = Y + prod * fact * fdt(n-i, i+1);
+end
+
+disp(Y)

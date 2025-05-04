@@ -1,0 +1,22 @@
+%% Mesh Grid & Surf
+
+x = -5:0.1:5
+y = -5:0.1:5
+[A, B] = meshgrid(x, y)
+z = exp(-(A.^2 + B.^2))
+mesh(A, B, z)
+surf(A, B, z)
+
+subplot(1,2,1)
+x = -5:0.1:5
+y = -5:0.1:5
+[A, B] = meshgrid(x, y)
+z = A.^2 + B.^2
+mesh(A, B, z)
+
+subplot(1,2,2)
+x = -5:0.1:5
+y = -5:0.1:5
+[A, B] = meshgrid(x, y)
+z = exp(-(A.^2 + B.^2))
+mesh(A, B, z)

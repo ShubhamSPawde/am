@@ -1,0 +1,18 @@
+%% Euler Method
+
+syms f(x, y)
+f(x, y) = x / y;
+
+atwhichpointuwanttofind = 4;
+
+x = 1;
+y = 2;
+h = 0.1;
+n = (atwhichpointuwanttofind - x(1)) / h;
+
+for i=2 : (n+1)
+    x(i) = x(i-1) + h;
+    y(i) = y(i-1) + h * f(x(i-1), y(i-1));
+end
+
+display("Euler ans : " + y(n+1))

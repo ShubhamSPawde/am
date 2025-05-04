@@ -1,0 +1,30 @@
+%% Subplot
+x = -1.5:0.1:1.5;
+y1 = sin(x);
+y2 = cos(x);
+y3 = tan(x);
+y4 = cot(x);
+
+subplot(2, 2, 1)
+plot(x, y1, "Color","r",LineWidth=1.5)
+legend("Sine")
+title("Sine Graph")
+grid on
+
+subplot(2, 2, 2)
+plot(x, y2, "Color","b",LineWidth=1.5)
+legend("Cosine")
+title("Cosine Graph")
+grid on
+
+subplot(2, 2, 3)
+plot(x, y3, "Color","g",LineWidth=1.5)
+legend("Tan")
+title("Tan Graph")
+grid on
+
+subplot(2, 2, 4)
+plot(x, y4, "Color","m",LineWidth=1.5)
+legend("Cot")
+title("Cot Graph")
+grid on

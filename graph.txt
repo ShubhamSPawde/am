@@ -1,0 +1,68 @@
+
+%% Graph Poly fit
+x = [2 4 6 8 10 12 14]
+y = [-7 19 33 104 213 9 23]
+hold on
+plot(x, y, '+', LineWidth=5)
+p = polyfit(x, y, 6)
+x_fit = [1:0.1:15]
+y_fit = polyval(p, x_fit)
+plot(x_fit, y_fit)
+hold off
+
+%% 
+x = [1 2 3 4 5 6 7]
+y = [2 5 24 61 122 213 340]
+hold on
+ylog = log(y)
+plot(x, y, '*', Color='r')
+p = polyfit(x, ylog, 1)
+b = p(1)
+a = exp(p(2))
+y_fit = a.*exp(b.*x)
+plot(x, y_fit)
+
+%% Subplot
+x = -1.5:0.1:1.5;
+y1 = sin(x);
+y2 = cos(x);
+y3 = tan(x);
+y4 = cot(x);
+
+subplot(2, 2, 1)
+plot(x, y1, "Color","r",LineWidth=1.5)
+legend("Sine")
+title("Sine Graph")
+grid on
+
+subplot(2, 2, 2)
+plot(x, y2, "Color","b",LineWidth=1.5)
+legend("Cosine")
+title("Cosine Graph")
+grid on
+
+subplot(2, 2, 3)
+plot(x, y3, "Color","g",LineWidth=1.5)
+legend("Tan")
+title("Tan Graph")
+grid on
+
+subplot(2, 2, 4)
+plot(x, y4, "Color","m",LineWidth=1.5)
+legend("Cot")
+title("Cot Graph")
+grid on
+
+%% yyaxis
+
+a = -10:0.1:10
+b1 = sin(a) + 3
+b2 = a.^3+3*a.^2+96
+
+hold on 
+yyaxis left
+plot(a, b1)
+
+yyaxis right
+plot(a, b2)
+hold off

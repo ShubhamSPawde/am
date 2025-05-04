@@ -1,0 +1,42 @@
+%% Trapzoidal 
+
+x = input('Enter x values: ');
+y = input('Enter y values: ');
+n = length(x);
+
+if mod(n-1,3) == 0
+    h = (x(end) - x(1)) / (n-1);
+    s1 = 0;
+    s2 = 0;
+    for i = 2:n-1
+        if mod(i-1, 3) == 0
+            s2 = s2 + y(i);
+        else
+            s1 = s1 + y(i);
+        end
+    end
+    result = (3*h/8) * (y(1) + y(end) + 3*s1 + 2*s2);
+    disp('Result using Simpson''s 3/8 Rule ='), disp(result);
+
+elseif mod(n-1,2) == 0
+    h = (x(end) - x(1)) / (n-1);
+    s1 = 0;
+    s2 = 0;
+    for i = 2:2:n-1
+        s1 = s1 + y(i);
+    end
+    for i = 3:2:n-2
+        s2 = s2 + y(i);
+    end
+    result = (h/3) * (y(1) + y(end) + 4*s1 + 2*s2);
+    disp('Result using Simpson''s 1/3 Rule ='), disp(result);
+
+else
+    h = (x(end) - x(1)) / (n-1);
+    s = 0;
+    for i = 2:n-1
+        s = s + y(i);
+    end
+    result = (h/2) * (y(1) + 2*s + y(end));
+    disp('Result using Trapezoidal Rule ='), disp(result);
+end
